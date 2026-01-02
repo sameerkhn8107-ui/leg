@@ -166,9 +166,19 @@ app.include_router(api_router)
 app.add_middleware(
     CORSMiddleware,
     allow_credentials=True,
-    allow_origins=["http://localhost:3000"],  # Allow frontend origin
+    allow_origins=[
+        "http://localhost:3000",  # Local development
+        "https://your-frontend-domain.com",  # Replace with your actual frontend domain
+        "*"  # Allow all origins for now - consider restricting in production
+    ],
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+# For local development and Render deployment
+if __name__ == "__main__":
+    import uvicorn
+    port = int(os.environ.get("PORT", 8000))
+    uvicorn.run(app, host="0.0.0.0", port=port)
 
 
