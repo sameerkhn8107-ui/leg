@@ -33,6 +33,15 @@ OPENAI_API_URL = os.environ.get('OPENAI_API_URL', 'https://api.openai.com/v1/cha
 # Create the main app
 app = FastAPI()
 
+# Routes
+@app.get("/")
+async def root():
+    return {"message": "Nex.Ai Backend API", "status": "running"}
+
+@app.get("/health")
+async def health():
+    return {"status": "healthy"}
+
 # Create a router with the /api prefix
 api_router = APIRouter(prefix="/api")
 
