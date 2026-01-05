@@ -162,7 +162,7 @@ app.include_router(api_router)
 app.add_middleware(
     CORSMiddleware,
     allow_credentials=True,
-    allow_origins=["http://localhost:3000"],  # Allow frontend origin
+    allow_origins=["https://leg-jade.vercel.app"],  # Vercel frontend domain
     allow_methods=["*"],
     allow_headers=["*"],
 )

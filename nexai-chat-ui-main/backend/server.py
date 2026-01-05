@@ -176,9 +176,7 @@ app.add_middleware(
     CORSMiddleware,
     allow_credentials=True,
     allow_origins=[
-        "http://localhost:3000",  # Local development
-        "https://your-frontend-domain.com",  # Replace with your actual frontend domain
-        "*"  # Allow all origins for now - consider restricting in production
+        "https://leg-jade.vercel.app"  # Vercel frontend domain
     ],
     allow_methods=["*"],
     allow_headers=["*"],
